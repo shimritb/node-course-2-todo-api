@@ -29,9 +29,14 @@ var id = '59d399876eba7d051494596d'; // user
 //     console.log('Todo By id: ', todo);
 // }).catch((e) => console.log(e));
 
-User.findById(id).then((user) => {
-    if(!user) {
-        return console.log('User not found');
+User.findById(id).then(
+    (user) => {
+        if(!user) {
+            return console.log('User not found');
+        }
+        console.log(JSON.stringify(user, undefined, 2));
+    }, 
+    (error) => {
+        console.log(error);
     }
-    console.log(user)// console.log(JSON.stringify(user, undefined, 2));
-}).catch((e) => console.log(e));
+);
